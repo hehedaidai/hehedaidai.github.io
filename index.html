@@ -1,40 +1,22 @@
-<!doctype html>
-<!-- The Time Machine GitHub pages theme was designed and developed by Jon Rohan, on Feb 7, 2012. -->
-<!-- Follow him for fun. http://twitter.com/jonrohan. Tail his code on https://github.com/jonrohan -->
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>不被舍弃的前端需要知道些什么---part one by hehedaidai</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">不被舍弃的前端需要知道些什么---part one</h1>
+      <h2 class="project-tagline">乐何的前端花园</h2>
+    </section>
 
-  <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen">
-  <link rel="stylesheet" href="stylesheets/github-dark.css">
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script type="text/javascript" src="javascripts/script.js"></script>
-
-  <title>不被舍弃的前端需要知道些什么---part one</title>
-  <meta name="description" content="乐何的前端花园">
-
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-
-</head>
-
-<body>
-
-  <div class="wrapper">
-    <header>
-      <h1 class="title">不被舍弃的前端需要知道些什么---part one</h1>
-    </header>
-    <div id="container">
-      <p class="tagline">乐何的前端花园</p>
-      <div id="main" role="main">
-        <div class="download-bar">
-        <div class="inner">
-          <a href="https://github.com/hehedaidai" class="code">View 不被舍弃的前端需要知道些什么---part one on GitHub</a>
-        </div>
-        <span class="blc"></span><span class="trc"></span>
-        </div>
-        <article class="markdown-body">
-          <p>事实上，在工作中，有多少经验，和你面试时是否会被pass，有的时候还真的不一定能匹配上。
+    <section class="main-content">
+      <p>事实上，在工作中，有多少经验，和你面试时是否会被pass，有的时候还真的不一定能匹配上。
 所以，我总结，面试那就是相亲，你要180，你要面善，你要答对要点，你要态度端正，你要勤恳……总之，你要看起来"好"
 这是现实的。</p>
 
@@ -265,26 +247,159 @@
 <p>将style.css中混乱的样式 划分成了一个一个的子文件</p>
 
 <p>另还有一种就是使用less,less更多的是把css编程化。</p>
-        </article>
-      </div>
-    </div>
-    <footer>
-      <div class="owner">
 
-      <p><a href="https://github.com/hehedaidai" class="avatar"><img src="https://avatars0.githubusercontent.com/u/8474110?v=3&amp;s=60" width="48" height="48"></a>View <a href="https://github.com/hehedaidai">hehedaidai</a> on <a href="https://www.github.com">GitHub</a></p>
+<p>七、css及js打包</p>
 
-      </div>
-      <div class="creds">
-        <small>This page generated using <a href="https://pages.github.com/">GitHub Pages</a><br>theme by <a href="https://twitter.com/jonrohan/">Jon Rohan</a></small>
-      </div>
-    </footer>
-  </div>
-  <div class="current-section">
-    <a href="#top">Scroll to top</a>
-    <a href="https://github.com/hehedaidai/hehedaidai.github.io/tarball/master" class="tar">tar</a><a href="https://github.com/hehedaidai/hehedaidai.github.io/zipball/master" class="zip">zip</a><a href="" class="code">source code</a>
-    <p class="name"></p>
-  </div>
+<p>1.首先安装nodeJs</p>
+
+<p>2.安装grunt一系列的插件，命令如下：</p>
+
+<p>npm install grunt -g  //安装grunt,-g全局变量 </p>
+
+<p>npm install grunt-cli -g //安装grunt命令行 </p>
+
+<p>npm install grunt --save-dev  //安装grunt,--save-dev保存到安装目录 </p>
+
+<p>npm install grunt-cli --save-dev //安装grunt命令行 </p>
+
+<p>npm install grunt-contrib-jshint --save-dev //js语法检测插件 </p>
+
+<p>npm install grunt-contrib-concat --save-dev //js合并插件 </p>
+
+<p>npm install grunt-contrib-uglify --save-dev //js压缩插件 </p>
+
+<p>npm install grunt-contrib-cssmin --save-dev //CSS压缩插件 </p>
+
+<p>3.创建工作目录</p>
+
+<p>node_modules里面包含了上面安装的插件</p>
+
+<p>--&gt;新建
+Gruntfile.js |  package.json</p>
+
+<p>--&gt;package.json
+{
+  "name": "demo",
+  "file": "zepto",
+  "version": "0.1.0",
+  "description": "demo",
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "~0.6.3",
+    "grunt-contrib-uglify": "~0.2.1",
+    "grunt-contrib-requirejs": "~0.4.1",
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-strip": "~0.2.1"
+  },
+  "dependencies": {
+    "express": "3.x"
+  }
+}</p>
+
+<p>Gruntfile.js
+module.exports = function (grunt) { 
+ // grunt配置 
+ grunt.initConfig({ 
+ pkg: grunt.file.readJSON('package.json'), 
+ concat: { 
+  options: { 
+  separator: ';'
+  }, 
+  dist: { 
+  src: ['js_s/function.js', 'js_s/jquery.validate.js'], 
+  dest: 'js_d/main.js' //合并不压缩 
+  } 
+ }, 
+ uglify: { 
+  options: { 
+  banner: '/<em>! &lt;%= pkg.name %&gt; &lt;%= grunt.template.today("yyyy-mm-dd") %&gt; */\n' //文件顶部的注释，可自定义 
+  }, 
+  build: { //将package.json中的file对应的文件，进行压缩并重命名 
+  src: 'js_s/&lt;%= pkg.file %&gt;.js',  //注意空格，官方配置例子是pkg.name 
+  dest: 'js_d/&lt;%= pkg.file %&gt;.min.js' //注意空格，官方配置例子是pkg.name 
+  }, 
+  buildall: {//将js_s文件夹下的所有js文件，压缩后，放到js_d文件夹中，文件名不变 
+  files: [{ 
+  expand:true, 
+  cwd:'js_s',//js目录下 
+  src:'</em><em>/</em>.js',//所有js文件 
+  dest: 'js_d'//输出到此目录下 
+  }] 
+  }, 
+  hebin: {//将function.js和jquery.validate.js，合并,并压缩成main.min.js 
+  files: { 
+   'js_d/main.min.js': ['js_s/function.js', 'js_s/jquery.validate.js'] 
+  } 
+  }, 
+  ymain: {//将main.js压缩成main1.min.js 
+  src: 'js_s/main.js', 
+  dest: 'js_d/main1.min.js'
+  } 
+ }, 
+ jshint: { //检查，function.js是不是有语法错误 
+  all: ['js_s/function.js'] 
+ }, 
+ cssmin: { 
+  combine: { 
+    files: { //将css_s文件夹下的css文件合成一个 
+     'css_d/main.css': ['css_s/<em>.css'] 
+    } 
+   }, 
+  minify: { 
+    options: { 
+     keepSpecialComments: 0, /</em> 删除所有注释 <em>/ 
+     banner: '/</em> minified css file <em>/'
+    }, 
+    files: { //单个CSS文件压缩 
+     'css_d/index.min.css': ['css_s/index.css'] 
+    } 
+   }, 
+  test: {//按文件夹下的所有CSS文件，压缩后，放到新的文件夹中，文件名不变 
+    files: [{ 
+   expand:true, 
+   cwd:'css_s',//css目录下 
+   src:'</em><em>/</em>.css',//所有css文件 
+   dest: 'css_d'//输出到此目录下 
+   }] 
+   } 
+  } 
+ }); 
+ // 加载插件 
+ grunt.loadNpmTasks('grunt-contrib-uglify'); 
+ grunt.loadNpmTasks('grunt-contrib-concat'); 
+ grunt.loadNpmTasks('grunt-contrib-jshint'); 
+ grunt.loadNpmTasks('grunt-contrib-cssmin'); </p>
+
+<p>// 是否调用插件功能 
+ //grunt.registerTask('default', ['concat','uglify','jshint','cssmin']); 
+ // grunt.registerTask('default', ['uglify']); 
+ // grunt.registerTask('default', ['concat']); 
+ //grunt.registerTask('default', ['jshint']); 
+ grunt.registerTask('default', ['cssmin']); //CSSMIN插件的功能能用，其他功能都不起作用 
+}
+如此配置，将要压缩的文件放到 js_d 、css_d,压缩后生成的文件放到js_s、css_s文件夹中，
+然后，最后在命令行中执行一句话--&gt;grunt 就可以啦。简单吧</p>
+
+<p>八.关于LESS还有SASS
+特点：
+--&gt;LESS环境较Sass简单
+--&gt;LESS使用貌似也比Sass简单
+--&gt;从功能出发，Sass较Less略强大一些
+--&gt;Sass在市面上有一些成熟的框架，如Compass</p>
+
+<p>九、js的 OOP
+对象化编程-------简单地去理解就是把javascript能涉及到的范围分成各种对象，对象下面再次划分对象。编程出发点多是对象，或者说基于对象。所说的对象既包含变量，网页，窗口等等
+<a href="http://www.cnblogs.com/yahue/p/3631994.html">http://www.cnblogs.com/yahue/p/3631994.html</a></p>
+
+      <footer class="site-footer">
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
 
   
-</body>
+  </body>
 </html>
